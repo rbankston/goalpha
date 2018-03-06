@@ -1,21 +1,20 @@
-// Copyright © 2018 Ralph Bankston <ralph.l.bankston@gmail.com>
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 package main
 
-import "github.com/rbankston/goalpha/cmd"
+import (
+	"flag"
+	"fmt"
+)
 
 func main() {
-	cmd.Execute()
+
+	phasePtr := flag.Int("phase", 1, "Phase of the program you are on: Choose 1, 2, 3")
+	weightPtr := flag.Int("weight", 250, "Your current weight in whole numbers")
+	fatPtr := flag.Int("fat", 20, "Current Body Fat percentage in whole numbers")
+
+	flag.Parse()
+
+	fmt.Println("Phase:", *phasePtr)
+	fmt.Println("Weight:", *weightPtr)
+	fmt.Println("Fat Percentage:", *fatPtr)
+
 }
