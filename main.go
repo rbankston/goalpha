@@ -41,10 +41,6 @@ func main() {
 
 	flag.Parse()
 
-	// fmt.Println("Phase:", *phasePtr)
-	// fmt.Println("Weight:", *weightPtr)
-	// fmt.Println("Fat Percentage:", *fatPtr)
-
 	var fat = *fatPtr
 	var weight = *weightPtr
 	var phase = *phasePtr
