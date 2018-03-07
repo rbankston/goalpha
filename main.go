@@ -3,35 +3,9 @@ package main
 import (
 	"flag"
 	"fmt"
+
+	"github.com/rbankston/goalpha/calc"
 )
-
-func lbmRate(f int) int {
-	if f < 12 {
-		return 17
-	} else if f < 15 {
-		return 16
-	} else if f < 19 {
-		return 15
-	} else if f < 22 {
-		return 14
-	} else {
-		return 13
-	}
-}
-
-func lbmNumber(w, f int) float64 {
-	wf := float64(w)
-	ff := float64(f)
-	var ffm = (100.00 - ff) / 100.00
-	var number = ffm * wf
-	return number
-}
-
-func maintCalories(r int, n float64) float64 {
-	var rf = float64(r)
-	var calories = rf * n
-	return calories
-}
 
 func main() {
 
@@ -45,9 +19,9 @@ func main() {
 	var weight = *weightPtr
 	var phase = *phasePtr
 
-	leanBodyRate := lbmRate(fat)
-	leanBodyMass := lbmNumber(weight, fat)
-	maintenanceCalories := maintCalories(leanBodyRate, leanBodyMass)
+	leanBodyRate := calc.LbmRate(fat)
+	leanBodyMass := calc.LbmNumber(weight, fat)
+	maintenanceCalories := calc.MaintCalories(leanBodyRate, leanBodyMass)
 
 	if phase == 1 {
 		var woProtein = 0.8 * leanBodyMass
