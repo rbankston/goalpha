@@ -2,15 +2,16 @@ package calc
 
 //LbmRate is the Lean Body Mass Rate for calucations
 func LbmRate(f int) int {
-	if f < 12 {
+	switch {
+	case f < 12:
 		return 17
-	} else if f < 15 {
+	case f < 15:
 		return 16
-	} else if f < 19 {
+	case f < 19:
 		return 15
-	} else if f < 22 {
+	case f < 22:
 		return 14
-	} else {
+	default:
 		return 13
 	}
 }
